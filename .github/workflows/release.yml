@@ -4,8 +4,10 @@
 
 name: Release
 on:
-  release:
-    types: [prereleased, released]
+  push:
+    branches: [ branch-no-exist-404 ]
+#  release:
+#    types: [prereleased, released]
 
 jobs:
 
