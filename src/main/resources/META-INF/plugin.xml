@@ -1,18 +1,20 @@
 <!-- Plugin Configuration File. Read more: https://plugins.jetbrains.com/docs/intellij/plugin-configuration-file.html -->
 <idea-plugin>
     <id>com.github.koooooo7.robin</id>
-    <name>robin</name>
+    <name>Robin</name>
     <vendor>koooooo-7</vendor>
 
     <depends>com.intellij.modules.platform</depends>
 
-    <resource-bundle>messages.MyBundle</resource-bundle>
-
     <extensions defaultExtensionNs="com.intellij">
-        <toolWindow factoryClass="com.github.koooooo7.robin.toolWindow.MyToolWindowFactory" id="MyToolWindow"/>
+        <postStartupActivity implementation="com.github.koooooo7.robin.OnStartup"/>
+        <applicationService serviceImplementation="com.github.koooooo7.robin.db.RingerSettings"/>
     </extensions>
 
-    <applicationListeners>
-        <listener class="com.github.koooooo7.robin.listeners.MyApplicationActivationListener" topic="com.intellij.openapi.application.ApplicationActivationListener"/>
-    </applicationListeners>
+    <actions>
+        <action id="robin_helper" class="com.github.koooooo7.robin.action.RobinConfigPanel" text="Hello Robin"
+                description="RobinConfigPanel">
+            <add-to-group group-id="HelpMenu" anchor="first"/>
+        </action>
+    </actions>
 </idea-plugin>

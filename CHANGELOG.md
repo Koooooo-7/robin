@@ -2,6 +2,9 @@
 
 # robin Changelog
 
-## [Unreleased]
+## [0.0.1]
+
 ### Added
-- Initial scaffold created from [IntelliJ Platform Plugin Template](https://github.com/JetBrains/intellij-platform-plugin-template)
+
+- Support add/reset multi ringers.
+- Support set robin time and the work day of week.
