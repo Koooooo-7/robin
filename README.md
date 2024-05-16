@@ -1,10 +1,11 @@
 # Robin
+<iframe width="245px" height="48px" src="https://plugins.jetbrains.com/embeddable/install/24417"></iframe>
 
-[//]: # (![Build]&#40;https://github.com/Koooooo-7/robin/workflows/Build/badge.svg&#41;)
+![Build](https://github.com/Koooooo-7/robin/workflows/Build/badge.svg)
 
-[//]: # ([![Version]&#40;https://img.shields.io/jetbrains/plugin/v/PLUGIN_ID.svg&#41;]&#40;https://plugins.jetbrains.com/plugin/PLUGIN_ID&#41;)
+[![Version](https://img.shields.io/jetbrains/plugin/v/24417.svg)](https://plugins.jetbrains.com/plugin/24417)
 
-[//]: # ([![Downloads]&#40;https://img.shields.io/jetbrains/plugin/d/PLUGIN_ID.svg&#41;]&#40;https://plugins.jetbrains.com/plugin/PLUGIN_ID&#41;)
+[![Downloads](https://img.shields.io/jetbrains/plugin/d/24417.svg)](https://plugins.jetbrains.com/plugin/24417)
 
 <!-- Plugin description -->
 :baby_chick: Robin, a reminder plugin to call your daily things.  
@@ -23,11 +24,6 @@ Sadly that I don't find a suitable plugin for my need, so I create it by myself.
   <kbd>Settings/Preferences</kbd> > <kbd>Plugins</kbd> > <kbd>Marketplace</kbd> > <kbd>Search for "robin"</kbd> >
   <kbd>Install</kbd>
   
-- Manually:
-
-  Download the [latest release](https://github.com/Koooooo-7/robin/releases/latest) and install it manually using
-  <kbd>Settings/Preferences</kbd> > <kbd>Plugins</kbd> > <kbd>⚙️</kbd> > <kbd>Install plugin from disk...</kbd>
-
 
 ---
 Plugin based on the [IntelliJ Platform Plugin Template][template].

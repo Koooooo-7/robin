@@ -29,16 +29,13 @@ class RingerSettings : PersistentStateComponent<RingerSettings.Ringers> {
         this.state = state
     }
 
-    fun getRingers(): List<Ringer> {
-        return state.ringers.values.toList()
+    fun getRingers(): MutableMap<String, Ringer> {
+        return state.ringers
     }
 
-    fun refreshRingers(ringers: List<Ringer>) {
+    fun refreshRingers(ringers: Map<String, Ringer>) {
         state.ringers.clear()
-        for (ringer in ringers) {
-            state.ringers[UUID.randomUUID().toString()] = ringer
-        }
-
+        state.ringers.putAll(ringers)
     }
 }
 

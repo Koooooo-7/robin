@@ -2,7 +2,7 @@
 <idea-plugin>
     <id>com.github.koooooo7.robin</id>
     <name>Robin</name>
-    <vendor>koooooo-7</vendor>
+    <vendor url="https://github.com/Koooooo-7">Koy</vendor>
 
     <depends>com.intellij.modules.platform</depends>
 
