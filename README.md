@@ -1,5 +1,4 @@
 # Robin
-<iframe width="245px" height="48px" src="https://plugins.jetbrains.com/embeddable/install/24417"></iframe>
 
 ![Build](https://github.com/Koooooo-7/robin/workflows/Build/badge.svg)
 
