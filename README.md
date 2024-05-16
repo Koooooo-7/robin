@@ -1,9 +1,7 @@
 # Robin
 
 ![Build](https://github.com/Koooooo-7/robin/workflows/Build/badge.svg)
-
 [![Version](https://img.shields.io/jetbrains/plugin/v/24417.svg)](https://plugins.jetbrains.com/plugin/24417)
-
 [![Downloads](https://img.shields.io/jetbrains/plugin/d/24417.svg)](https://plugins.jetbrains.com/plugin/24417)
 
 <!-- Plugin description -->
