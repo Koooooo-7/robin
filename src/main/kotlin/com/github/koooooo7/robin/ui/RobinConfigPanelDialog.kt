@@ -1,22 +1,20 @@
-package com.github.koooooo7.robin.ui;
+package com.github.koooooo7.robin.ui
 
 import com.github.koooooo7.robin.db.Ringer
 import com.github.koooooo7.robin.db.RingerSettings
 import com.github.koooooo7.robin.db.WeekDay
 import com.intellij.icons.AllIcons.General
 import com.intellij.openapi.project.Project
+import com.intellij.openapi.ui.ComboBox
 import com.intellij.openapi.ui.DialogWrapper
-import org.apache.commons.collections.functors.MapTransformer
-import java.awt.event.ActionEvent
-import java.awt.event.ActionListener
-import java.util.UUID
+import java.util.*
 import java.util.concurrent.ConcurrentHashMap
 import javax.swing.*
 
 
 class RobinConfigPanelDialog(project: Project?) : DialogWrapper(project) {
 
-    private val uidKey = "_UID";
+    private val uidKey = "_UID"
     private val ringerSettings: RingerSettings = RingerSettings.INSTANCE
     private val runtimeRingerSettings = ConcurrentHashMap<String, Ringer>()
     private val daysOfWeek = WeekDay.values().map { it.abbreviation }
@@ -89,8 +87,8 @@ class RobinConfigPanelDialog(project: Project?) : DialogWrapper(project) {
 
             val ringerPanel = singleRingerPanel.components[0] as JPanel
             // 【0】 【2】 JLabel => Time xx : xx
-            ringer.selectedHour = (ringerPanel.components[1] as JComboBox<*>).selectedItem?.toString() ?: "00"
-            ringer.selectedMinute = (ringerPanel.components[3] as JComboBox<*>).selectedItem?.toString() ?: "00"
+            ringer.selectedHour = (ringerPanel.components[1] as ComboBox<*>).selectedItem?.toString() ?: "00"
+            ringer.selectedMinute = (ringerPanel.components[3] as ComboBox<*>).selectedItem?.toString() ?: "00"
             val descriptionAndRemove = singleRingerPanelWithDescription.components[1] as JPanel
             ringer.description = ((descriptionAndRemove.components[0] as JTextField).text ?: "").take(80)
 
@@ -127,9 +125,9 @@ class RobinConfigPanelDialog(project: Project?) : DialogWrapper(project) {
         descAndRemovePanel.layout = BoxLayout(descAndRemovePanel, BoxLayout.LINE_AXIS)
 
         val removeBtn = JButton(General.Remove)
-        removeBtn.putClientProperty(uidKey, ringerUID);
+        removeBtn.putClientProperty(uidKey, ringerUID)
         removeBtn.addActionListener {
-            val needRemoveRingerUID = removeBtn.getClientProperty(uidKey);
+            val needRemoveRingerUID = removeBtn.getClientProperty(uidKey)
             runtimeRingerSettings.remove(needRemoveRingerUID)
             refreshRuntimeRingersPanel(runtimeRingerSettings)
         }
@@ -144,7 +142,7 @@ class RobinConfigPanelDialog(project: Project?) : DialogWrapper(project) {
     private fun genWeekendJPanel(checked: BooleanArray): JPanel {
         val weekend = JPanel()
         for (i in 0..6) {
-            val day = JCheckBox(daysOfWeek[i], checked[i]);
+            val day = JCheckBox(daysOfWeek[i], checked[i])
             weekend.add(day)
         }
 
@@ -154,8 +152,8 @@ class RobinConfigPanelDialog(project: Project?) : DialogWrapper(project) {
 
     private fun genComboBoxes(hour: Int = 0, min: Int = 0): JPanel {
         val timePanel = JPanel()
-        val hourComboBox = JComboBox<String>()
-        val minuteComboBox = JComboBox<String>()
+        val hourComboBox = ComboBox<String>()
+        val minuteComboBox = ComboBox<String>()
         for (i in 0..23) {
             hourComboBox.addItem(String.format("%02d", i))
         }
@@ -173,11 +171,11 @@ class RobinConfigPanelDialog(project: Project?) : DialogWrapper(project) {
     }
 
     private fun genUID(): String {
-        return UUID.randomUUID().toString();
+        return UUID.randomUUID().toString()
     }
 
     private fun refreshRuntimeRingersPanel(ringerSettings: Map<String, Ringer>) {
-        runtimeRingersPanel.removeAll();
+        runtimeRingersPanel.removeAll()
         for ((uid, ringerData) in ringerSettings) {
             runtimeRingersPanel.add(genSingleRingerPanelWithDescription(uid, ringerData))
         }
