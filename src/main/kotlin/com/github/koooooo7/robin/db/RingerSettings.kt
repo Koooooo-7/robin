@@ -11,7 +11,7 @@ import java.util.concurrent.ConcurrentHashMap
 class RingerSettings : PersistentStateComponent<RingerSettings.Ringers> {
 
     companion object {
-        val INSTANCE: RingerSettings = ApplicationManager.getApplication().getService(RingerSettings::class.java);
+        fun getInstance(): RingerSettings = ApplicationManager.getApplication().getService(RingerSettings::class.java);
     }
 
     data class Ringers(

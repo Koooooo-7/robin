@@ -17,6 +17,13 @@ class RingerWorker {
     private var currentDayCacheDay = WeekDay.Mon
     private val runtimeRingedCache = ConcurrentHashMap<Int, Int>()
 
+    companion object {
+        private val INSTANCE = RingerWorker()
+        fun getInstance(): RingerWorker {
+            return INSTANCE
+        }
+    }
+
     fun start(ringerSettings: RingerSettings) {
 
         val t = Thread {
@@ -75,7 +82,12 @@ class RingerWorker {
                         runtimeRingedCache[currentHour] = currentMinute
                     }
 
-                    val title = "[$currentDay ${String.format("%02d", currentHour)}:${String.format("%02d", currentMinute)}] Robin ring :>"
+                    val title = "[$currentDay ${String.format("%02d", currentHour)}:${
+                        String.format(
+                            "%02d",
+                            currentMinute
+                        )
+                    }] Robin ring :>"
 
                     ApplicationManager.getApplication().invokeLater {
                         Messages.showMessageDialog(ringer.description, title, Messages.getInformationIcon())

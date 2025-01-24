@@ -13,7 +13,7 @@ internal class OnStartup : StartupActivity {
     override fun runActivity(project: Project) {
 
         if (!isScheduled) {
-            RingerWorker().start(RingerSettings.INSTANCE)
+            RingerWorker.getInstance().start(RingerSettings.getInstance())
             isScheduled = true
         }
     }

@@ -15,7 +15,7 @@ import javax.swing.*
 class RobinConfigPanelDialog(project: Project?) : DialogWrapper(project) {
 
     private val uidKey = "_UID"
-    private val ringerSettings: RingerSettings = RingerSettings.INSTANCE
+    private val ringerSettings: RingerSettings = RingerSettings.getInstance()
     private val runtimeRingerSettings = ConcurrentHashMap<String, Ringer>()
     private val daysOfWeek = WeekDay.values().map { it.abbreviation }
     private val defaultRinger = Ringer()
