@@ -41,6 +41,19 @@ intellij {
     plugins = properties("platformPlugins").map { it.split(',').map(String::trim).filter(String::isNotEmpty) }
 }
 
+intellijPlatform {
+    pluginVerification {
+        ides {
+            val productReleases = ProductReleasesValueSource().get()
+            // Only verify the first and last version in range
+            val reducedProductReleases =
+                if (productReleases.size > 2) listOf(productReleases.first(), productReleases.last())
+                else productReleases
+            ides(reducedProductReleases)
+        }
+    }
+}
+
 // Configure Gradle Changelog Plugin - read more: https://github.com/JetBrains/gradle-changelog-plugin
 changelog {
     groups.empty()
